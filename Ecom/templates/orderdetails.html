@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orderdetails</title>
+</head>
+<body>
+
+{% for x in data %}
+<h2>ordered_Item</h2><br>
+<img src="{{x.image.url}}" style="width:30%">
+<br>
+<br>
+{{x.productName}}<br>
+{{x.quantity}}<br>
+<h2>delivery_Address</h2><br>
+
+{{x.address.first_name}}<br>
+{{x.address.current_address}}<br>
+<br>
+<br>
+<br>
+{% endfor %}
+{{data.delete.all}}
+
+
+
+
+
+
+</body>
+</html>

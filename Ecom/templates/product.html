@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<h1 align="center">PRODUCT</h1>
+
+
+
+
+    {% for x in data %}
+    <div>
+    <a href="{% url 'description' x.id %}"><img src="{{x.image.url}}" style="width:30%"></a></br>
+        price:{{x.price}}</br>
+
+    <a href="{% url 'description' x.id %}">{{x.productName}}</a></br>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+

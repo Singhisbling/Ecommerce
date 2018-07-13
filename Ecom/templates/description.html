@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 align="center">PRODUCT-DETAILS</h1>
+
+
+{# ID:{{item.id}} #}
+<a href="{% url 'chakker' item.id %}"><img src="{{item.image.url}}" style="width:30%"></a></br>
+
+productName: {{item.productName}}</br>
+
+price: {{item.price}}</br>
+
+specification: {{item.specification}}</br>
+
+left_quantity: {{item.left_quantity}}</br>
+
+
+{% if item.left_quantity > 0 %}
+
+<a href="{% url 'chakker' item.id %}">Add_To_Cart</a></br>
+{% endif %}
+
+{% endblock %}

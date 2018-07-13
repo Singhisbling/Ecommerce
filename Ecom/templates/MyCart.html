@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1 align="center">MY-CART</h1>
+
+{% for x in data %}
+
+     {# {% if x.user.id == userId %} #}
+
+<p><strong> {{x.productName}}</strong></p>    <br>
+  <p><strong> {{x.price}} </strong></p>         {{x.quantity}} </br>
+<div align="center">
+    <pre>
+<a href="{% url 'delete' x.productId %}"> reducequantity</a><br>
+
+    <a href="{% url 'chakker' x.productId %}"> increaseQuantity</a><br>
+    </pre>
+</div>
+      <img src="{{x.image.url}}" style="width:30%"><br>
+<br>
+<br>
+
+
+
+     {# {% endif %} #}
+{% endfor %}
+
+Total_Amount ::{{cartprice}}<br>
+<br>
+<br>
+
+
+<div>
+<a href="{% url 'ads' %}"> Buy</a>
+</div>
+
+
+
+{# total_amount : {{total_amount}} #}
+</pre>
+{% endblock %}
