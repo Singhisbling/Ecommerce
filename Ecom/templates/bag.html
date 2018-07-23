@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 align="center">Bag</h1>
+  {% for x in data1 %}
+<p><strong> {{x.productName}}</strong></p>    <br>
+<br>
+ <p><strong> {{x.price}} </strong></p>                {{x.quantity}} </br>
+   <img src="{{x.image.url}}" style="width:30%"><br>
+  {% endfor %}
+
+Total_Amount ::{{cartprice}}<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+{% endblock %}
+
+
+

@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^signup/$', views.signup_view, name='signup'),
     url(r'^login/$', views.login_view, name='login'),
     url(r'^', include('Eco.urls')),
+    url(r'^search/$',views.search,name="search"),
 ]
 
 urlpatterns += static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)

@@ -5,7 +5,12 @@
 
 
 {# ID:{{item.id}} #}
+{% if item.left_quantity > 0%}
 <a href="{% url 'chakker' item.id %}"><img src="{{item.image.url}}" style="width:30%"></a></br>
+{% else %}
+<img src="{{item.image.url}}" style="width:30%"></br>
+{% endif%}
+
 
 productName: {{item.productName}}</br>
 

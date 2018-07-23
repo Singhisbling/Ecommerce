@@ -50,3 +50,13 @@ class Order(models.Model):
 
    def __str__(self):
       return self.productName
+
+
+
+class Payement(models.Model):
+   """payement_id =
+   customer_id =
+   staff_id =
+   amount =
+   payement_date =
+   """

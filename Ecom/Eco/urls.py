@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^delete/(?P<productId>\d+)/$',views.delete,name="delete"),
     url(r'^ads/$', views.Ads, name="ads"),
     url(r'^order/(?P<pk>\d+)/$',views.order,name="order"),
+    url(r'^bag/$',views.Bag,name="bag"),
+    url(r'^myorder/$',views.Myorder,name="myorder"),
 
 
 

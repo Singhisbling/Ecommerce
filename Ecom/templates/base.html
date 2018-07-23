@@ -7,10 +7,21 @@
   <body>
     <header>
       <h1>MySite.com</h1>
+
+      <section id="wrapper">
+    <div id="main">
+      <form action="{%url 'search' %}" method="GET">
+
+        <input type="text" name="q" placeholder="search product">
+        <input type="submit" class="solid" value="Search">
+      </form>
+    </div><!--main-->
+  </section><!--wrapper-->
+
        <div align="center">
          <button ><a href="{% url 'product' %}">product</a></button>
-        <button ><a href="#">Cart</a></button>
-         <button ><a href="#">MyOrders</a></button>
+        <button ><a href="{% url 'bag' %}">Cart</a></button>
+         <button ><a href="{% url 'myorder' %}">MyOrders</a></button>
        </div>
       {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">logout</a>
