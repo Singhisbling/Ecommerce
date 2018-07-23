@@ -169,7 +169,7 @@ def search(request):
     print(request)
     product=request.GET.get('q')
     data = Product.objects.filter(productName__icontains = product)
-    return render(request,'search.html',{'data':data})
+    return render(request,'product.html',{'data':data})
 
 
 
