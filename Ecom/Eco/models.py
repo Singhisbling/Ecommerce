@@ -24,7 +24,7 @@ class MyCart(models.Model):
    quantity = models.IntegerField(default=1)
    image=models.ImageField(blank=True)
    def __str__(self):
-      return str(self.user)
+      return str(self.productId)
 
 
 

@@ -7,12 +7,14 @@
 <body>
 
 {% for x in data1 %}
+
 <h2>ordered_Item</h2><br>
 <img src="{{x.image.url}}" style="width:30%">
 <br>
 <br>
 {{x.productName}}<br>
 {{x.quantity}}<br>
+
 <h2>delivery_Address</h2><br>
 
 {{x.address.first_name}}<br>
@@ -20,4 +22,5 @@
 <br>
 <br>
 <br>
+
 {% endfor %}

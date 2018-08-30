@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .address_form import Address_form
 
-from .forms import SignUpForm
+from .forms import SignUpForm, CustomAuthenticationForm
 
 
 def home(request):
@@ -35,7 +35,7 @@ def signup_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = CustomAuthenticationForm(data=request.POST)
         if form.is_valid():
             # form.save()
             username = form.cleaned_data.get('username')
@@ -45,8 +45,9 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             return redirect('home')
+
     else:
-        form = AuthenticationForm()
+        form = CustomAuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
 
@@ -92,7 +93,7 @@ def chakker(request, pk):
     for v in data:
         totalprice = totalprice + v.price
 
-    return render(request, 'MyCart.html', {'data': data, 'cartprice': totalprice})
+    return redirect("bag")
 
 
 def delete(request, productId):
@@ -108,7 +109,7 @@ def delete(request, productId):
                 x.save()
             else:
                 x.delete()
-    return render(request, 'MyCart.html', {'data': data})
+    return redirect('bag')
 
 
 def Ads(request):
@@ -121,8 +122,8 @@ def Ads(request):
                 last_name=form.cleaned_data.get('last_name'),
                 # email=form.cleaned_data.get('email'),
                 current_address=form.cleaned_data.get('address'))
-            print(type(data.id))
             return render(request, 'order.html', {'data': data})
+
 
 
     else:
@@ -131,13 +132,12 @@ def Ads(request):
 
 
 def order(request, pk):
-    pk = int(pk)
     current_user = request.user
     data1 = current_user.mycart.all()
     datta = current_user.address.get(pk=pk)
 
     for x in data1:
-        obj = Product.objects.get(id=x.productId)
+        obj = Product.objects.get(productName = x.productName)
         if obj.left_quantity >= x.quantity:
             obj.left_quantity = obj.left_quantity - x.quantity
             obj.save()
